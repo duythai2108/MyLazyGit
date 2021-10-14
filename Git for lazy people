@@ -1,0 +1,113 @@
+##### USE GIT #####
+
+# LOCAL REPOSITORY: Kho chứa dưới máy tính cá nhân, máy tính làm việc
+# REMOTE REPOSITORY: Kho chứa chung được lưu trữ trên git server. Sử dụng gitlab, github,...
+để làm công cụ quản lý
+# "." đại diện cho tất cả các thư mục/files
+# ".gitignore": chứa các file sẽ không được commit vầ đẩy lên remote repository
+
+
+
+WORKING DIRECTORY -------------- STAGING AREA ----------------REPOSITORY
+    (Thư mục làm                 (sắp xếp ,                    (kho chứa 
+      việc góc)                    chuẩn bị)                     dưới local)
+    
+
+# Working directory: Nơi chứa toàn bộ các thư mục/files làm việc của commit trước đó
+
+# staging are: nơi lưu trữ các thay đổi về trạng thái của các thư mục/files so với commit trước đó 
+
+# repository: các sự thay đổi của thư mục/files đã được commit và chuẩn bị đưa lên remote repository
+
+
+
+
+
+
+
+// git config [--global] user.name "your_name"
+// git config [--global] user.email "your_email"
+Ý nghĩa: setup name và email(email dùng đăng nhập trên gitlab, github...) cho git 
+
+
+// git init
+Ý nhĩa: là khỏi tạo kho chứa(mới, chưa tồn tại) dưới máy local(cá nhân, làm việc) để thao tác với một remote repository
+
+
+// git remote add orgin + url
+Ý nghĩa: Kết nối kho chứa dưới local với remote 
+
+
+// git clone
+Ý nghĩa: tải một project/dự án đã được tạo từ remote repository về local repository
+
+
+// git status
+Ý nghĩa: kiểm tra trạng thái các thư mục/files đã được thêm vào vùng staging hay chưa
+
+
+// git commit -m "chú thích cho commit ở đây"
+Ý nghĩa: đưa các thưa mục/files ở vùng staging vào local repository để chuẩn bị cho việc đẩy lên kho chứa chung. Lúc này
+trạng thái của Working directory(thư mục làm việc) là không có sự thay đổi và chứa tất cả các nội dung của commit này(commit cuối)
+
+
+// git commit -amend -m "chú thích cho commit ở đây"
+Ý nghĩa: Thay đổi chú thích của commit trước
+
+
+// git push
+Cú pháp: 
+    push lần đầu: git push -u origin <tên_nhánh> | git push --setup-upstream origin <tên_nhánh>
+    những lần sau: git push
+Ý nghĩa: đẩy commit lên remote repository
+
+
+// git pull
+Ý nghĩa: tải tất thay đổi trên remote repository cập nhật vào các nhánh của local repo.
+
+
+// git pull origin  
+Tương đương
+// git fetch orgin + git merge origin/master
+Ý nghĩa: tải về thông tin và ngay lập tức merge cho nhánh đang làm việc
+
+
+
+// git branch
+Ý nghĩa: xem thư mục làm việc đang ở nhánh nào trên remote, xem luôn danh sách nhánh
+
+
+// git branch <ten_nhanh>
+ý nghĩa: tạo nhánh mới
+
+
+// git restore <ten_file>
+Ý nghĩa: khôi phục lại file nếu file đó khi đã được add vào vùng staging mà bị delete
+
+
+// git checkout <ten_nhanh>
+// git switch <ten_nhanh>
+Ý nghĩa: chuyển nhánh 
+
+
+// git checkout -b <ten_nhanh>
+Ý nghĩa: vừa tạo nhánh mới, vừa chuyển sang luôn nhánh vừa tạo
+
+
+// git log
+// git log --oneline
+Ý nghĩa: xem lịch sử commit 
+
+
+// git reset | git reset .
+// git reset -- <ten-file> | git reset <ten-file>
+// git rm --cached <ten_file> (chỉ thao tác với 1 file)
+Ý nghĩa: hủy bỏ trạng thái staged của file
+
+
+// git reset --soft HEAD~1
+Ý nghĩa: xóa commit cuối và đưa các file về vùng staging. 
+
+
+// git reset --hard HEAD~1
+Ý nghĩa: xóa vĩnh viễn commit cuối
